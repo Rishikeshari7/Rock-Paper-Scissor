@@ -1,5 +1,6 @@
  @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
-*{
+ @import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+ *{
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
@@ -60,4 +61,7 @@ img:hover{
     background-color: #081b31;
     padding: 1rem;
     border-radius: 1rem;
+}
+#you,#comp{
+    font-family: 'Rubik Bubbles', sans-serif;
 }

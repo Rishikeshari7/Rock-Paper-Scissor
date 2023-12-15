@@ -1,6 +1,7 @@
 let myScore=0;
 let compScore=0;
-
+const myScorePara=document.querySelector(".my-score");
+const compScorePara=document.querySelector(".comp-score");
 const availableChoices= document.querySelectorAll(".choice");
 const msgPrint=document.querySelector(".msg")
 const computerChoice=()=>{
@@ -12,11 +13,15 @@ const computerChoice=()=>{
 
 const printWinner=(checkAns,myChoice,compChoice)=>{
     if(checkAns===true){
+        myScore++;
+        myScorePara.innerHTML=myScore;
         // console.log(`You Won ! Your ${myChoice} beats ${compChoice}`);
         msgPrint.innerHTML=`You Won ! Your <i>${myChoice.toUpperCase()}</i> beats <i>${compChoice.toUpperCase()}</i>`;
         msgPrint.style.backgroundColor="green";
     }
     else{
+        compScore++;
+        compScorePara.innerHTML=compScore;
         // console.log(`You Lost! ${compChoice} beats your ${myChoice}`);
         msgPrint.innerHTML=`You Lost! <i>${compChoice.toUpperCase()}</i> beats your <i>${myChoice.toUpperCase()}</i>`;
         msgPrint.style.backgroundColor=" rgb(228, 21, 21)";
