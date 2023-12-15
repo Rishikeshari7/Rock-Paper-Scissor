@@ -2,7 +2,7 @@ let myScore=0;
 let compScore=0;
 
 const availableChoices= document.querySelectorAll(".choice");
-
+const msgPrint=document.querySelector(".msg")
 const computerChoice=()=>{
    const indx= Math.floor(Math.random()*3);
     const array=["rock","paper","scissor"];
@@ -12,16 +12,22 @@ const computerChoice=()=>{
 
 const printWinner=(checkAns,myChoice,compChoice)=>{
     if(checkAns===true){
-        console.log(`You Won ! Your ${myChoice} beats ${compChoice}`);
+        // console.log(`You Won ! Your ${myChoice} beats ${compChoice}`);
+        msgPrint.innerHTML=`You Won ! Your <i>${myChoice.toUpperCase()}</i> beats <i>${compChoice.toUpperCase()}</i>`;
+        msgPrint.style.backgroundColor="green";
     }
     else{
-        console.log(`You Lost! ${compChoice} beats your ${myChoice}`);
+        // console.log(`You Lost! ${compChoice} beats your ${myChoice}`);
+        msgPrint.innerHTML=`You Lost! <i>${compChoice.toUpperCase()}</i> beats your <i>${myChoice.toUpperCase()}</i>`;
+        msgPrint.style.backgroundColor=" rgb(228, 21, 21)";
     }
 }
 
 const checkWinner=(myChoice,compChoice)=>{
     if(myChoice===compChoice){
         console.log("Its a draw");
+        msgPrint.innerHTML=`Its Draw!! You both choose <i>${myChoice.toUpperCase()}</i>`
+        msgPrint.style.backgroundColor="#081b31"
     }
     else {
         let checkAns=true;
