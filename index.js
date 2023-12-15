@@ -18,6 +18,10 @@ const printWinner=(checkAns,myChoice,compChoice)=>{
         // console.log(`You Won ! Your ${myChoice} beats ${compChoice}`);
         msgPrint.innerHTML=`You Won ! Your <i>${myChoice.toUpperCase()}</i> beats <i>${compChoice.toUpperCase()}</i>`;
         msgPrint.style.backgroundColor="green";
+        myScorePara.style.transform="scale(1.15)";
+        setTimeout(()=>{
+            myScorePara.style.transform="scale(1)";
+        },300);
     }
     else{
         compScore++;
@@ -25,14 +29,19 @@ const printWinner=(checkAns,myChoice,compChoice)=>{
         // console.log(`You Lost! ${compChoice} beats your ${myChoice}`);
         msgPrint.innerHTML=`You Lost! <i>${compChoice.toUpperCase()}</i> beats your <i>${myChoice.toUpperCase()}</i>`;
         msgPrint.style.backgroundColor=" rgb(228, 21, 21)";
+        compScorePara.style.transform="scale(1.15)";
+        setTimeout(()=>{
+            compScorePara.style.transform="scale(1)";
+        },300);
     }
 }
 
 const checkWinner=(myChoice,compChoice)=>{
     if(myChoice===compChoice){
-        console.log("Its a draw");
+        // console.log("Its a draw");
         msgPrint.innerHTML=`Its Draw!! You both choose <i>${myChoice.toUpperCase()}</i>`
         msgPrint.style.backgroundColor="#081b31"
+        
     }
     else {
         let checkAns=true;
@@ -50,12 +59,17 @@ const checkWinner=(myChoice,compChoice)=>{
 }
 
 availableChoices.forEach((choice)=>{
+    
     choice.addEventListener("click",()=>{
         // console.log("you click",choice);
+        choice.style.transform="scale(1.05)";
+        setTimeout(()=>{
+            choice.style.transform="scale(1)";
+        },300)
         const myChoice=choice.getAttribute("id");
         console.log("you choose",myChoice);
        const compChoice= computerChoice();
        console.log("copm choose",compChoice);
-       checkWinner(myChoice,compChoice);
+       checkWinner(myChoice,compChoice,choice);
     });
 });
